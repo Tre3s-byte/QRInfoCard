@@ -1,0 +1,31 @@
+@function weight($weight-name) {
+  @return map-get($font-weight, $weight-name);
+}
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: nowrap;
+}
+
+$white: hsl(0, 0%, 100%);
+$light-gray: hsl(212, 45%, 89%);
+$grayish-blue: hsl(220, 15%, 55%);
+$dark-blue: hsl(218, 44%, 22%);
+$cobalt-blue: hsl(228, 45%, 44%);
+
+$defaul-title-color: $white, $dark-blue;
+$default-text-color: $white, $grayish-blue;
+
+$dark-title-color: $dark-blue, $white;
+$dark-text-color: $dark-blue, $light-gray;
+
+$font-weight: (
+  "regular": 400,
+  "bold": 700,
+);
+.attribution {
+  font-size: 0.8em;
+  text-align: center;
+}

@@ -1,0 +1,80 @@
+@import "./resets";
+@import "./variables";
+
+body {
+  @include flex-center(column);
+  height: 100vh;
+  background: $light-gray;
+}
+
+@media (max-width: 608px), (min-width: 609px) {
+  .container {
+    @include flex-center(column);
+    justify-content: flex-start;
+    width: 30em;
+    height: 80vh;
+    background: $white;
+    border-radius: 1.3em;
+    gap: 2.3em;
+
+    .img-container {
+      position: relative;
+      top: 1.2vh;
+      width: 28em;
+      min-width: 19em;
+    }
+
+    .qr {
+      width: 100%;
+      border-radius: 0.7em;
+    }
+
+    .card-title {
+      width: 85%;
+      font-size: clamp(15px, calc(1.8em + 1vw), 2.2em);
+      text-align: center;
+      color: $dark-blue;
+    }
+
+    .informative-text {
+      width: 18.6em;
+      text-align: center;
+      font-size: clamp(15px, calc(1.5em + 1vw), 1.3em);
+      line-height: 1.5em;
+      font-weight: weight(regular);
+      color: $grayish-blue;
+    }
+
+    @media (min-width: 609px) {
+      height: 65vh;
+
+      .img-container {
+        width: 19vw;
+        min-width: 19em;
+      }
+
+      .card-title {
+        font-size: clamp(15px, calc(1.2em + 1vw), 1.9em);
+      }
+
+      .informative-text {
+        width: 85%;
+        font-size: clamp(15px, calc(1em + 1vw), 1.3em);
+      }
+    }
+  }
+}
+
+// .dark-theme {
+//   background: $dark-blue;
+//   color: $white;
+// }
+// .light-theme {
+//   background: $light-gray;
+// }
+
+// .theme-buttons {
+//   top: 1em;
+//   right: 1em;
+//   position: absolute;
+// }
