@@ -1,14 +1,7 @@
-@function weight($weight-name) {
-  @return map-get($font-weight, $weight-name);
-}
-@mixin flex-center($direction) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: $direction;
-  flex-wrap: nowrap;
-}
-
+$mobile: 375px;
+$tablet: 768px;
+$large: 1024px;
+$desktop: 1280px;
 $white: hsl(0, 0%, 100%);
 $light-gray: hsl(212, 45%, 89%);
 $grayish-blue: hsl(220, 15%, 55%);
@@ -25,6 +18,37 @@ $font-weight: (
   "regular": 400,
   "bold": 700,
 );
+$breakPoints: (
+  xs: (
+    min: 375,
+    max: 374.98,
+  ),
+  sm: (
+    min: 462px,
+    max: 461.98,
+  ),
+);
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakPoints, $breakpoint) {
+    $query: map-get(map-get($breakPoints, $breakpoint), min) + 1;
+    @media screen and (max-width: #{$query}px) {
+      @content;
+    }
+  } @else {
+    @error "The provided breakpoint '#{$breakpoint}' does not exist in $breakPoints.";
+  }
+}
+@function weight($weight-name) {
+  @return map-get($font-weight, $weight-name);
+}
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: nowrap;
+}
+
 .attribution {
   font-size: 0.8em;
   text-align: center;

@@ -7,74 +7,65 @@ body {
   background: $light-gray;
 }
 
-@media (max-width: 608px), (min-width: 609px) {
-  .container {
+.card {
+  @include flex-center(column);
+  @include respond-to(xs) {
+    width: 90vw;
+    gap: 1em;
+    height: 35em;
+  }
+  width: 26.5em;
+  height: 40em;
+  justify-content: flex-start;
+  background: $white;
+  border-radius: 2em;
+  gap: 2em;
+
+  .card__qr {
+    margin-top: 1.2em;
+    width: 24em;
+    @include respond-to(xs) {
+      width: 82vw;
+      margin: 1em 0;
+    }
+    border-radius: 0.8em;
+  }
+
+  .container__text-container {
     @include flex-center(column);
-    justify-content: flex-start;
-    width: 30em;
-    height: 80vh;
-    background: $white;
-    border-radius: 1.3em;
-    gap: 2.3em;
-
-    .img-container {
-      position: relative;
-      top: 1.2vh;
-      width: 28em;
-      min-width: 19em;
+    @include respond-to(xs) {
+      width: 78vw;
+      margin-bottom: 1em;
     }
-
-    .qr {
-      width: 100%;
-      border-radius: 0.7em;
-    }
+    width: 24em;
+    gap: 1em;
+    margin-bottom: 2em;
 
     .card-title {
-      width: 85%;
-      font-size: clamp(15px, calc(1.8em + 1vw), 2.2em);
+      @include respond-to(xs) {
+        font-size: 1.5em;
+        width: 19.03rem;
+      }
+
       text-align: center;
+      font-weight: weight(bold);
+      font-size: 1.9em;
       color: $dark-blue;
     }
 
     .informative-text {
-      width: 18.6em;
+      @include respond-to(xs) {
+        font-size: 1.2em;
+        width: 21rem;
+      }
+      width: 17.5em;
       text-align: center;
-      font-size: clamp(15px, calc(1.5em + 1vw), 1.3em);
-      line-height: 1.5em;
       font-weight: weight(regular);
+      font-size: 1.35em;
+      line-height: 1.2em;
       color: $grayish-blue;
-    }
-
-    @media (min-width: 609px) {
-      height: 65vh;
-
-      .img-container {
-        width: 19vw;
-        min-width: 19em;
-      }
-
-      .card-title {
-        font-size: clamp(15px, calc(1.2em + 1vw), 1.9em);
-      }
-
-      .informative-text {
-        width: 85%;
-        font-size: clamp(15px, calc(1em + 1vw), 1.3em);
-      }
     }
   }
 }
 
-// .dark-theme {
-//   background: $dark-blue;
-//   color: $white;
-// }
-// .light-theme {
-//   background: $light-gray;
-// }
-
-// .theme-buttons {
-//   top: 1em;
-//   right: 1em;
-//   position: absolute;
-// }
+/* Override specific styles for screens up to 456px */
