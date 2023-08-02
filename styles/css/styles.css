@@ -70,11 +70,14 @@ body {
     align-self: center;
     width: clamp(20em, 90vw, 50em);
     gap: 1em;
-    height: clamp(33em, 143vw, 46em);
+    height: clamp(28em, 135vw, 43em);
   }
   .card .card__qr {
     width: clamp(14em, 81vw, 34em);
     margin: 1.15em 0 0.3em 0;
+  }
+  .card .container__text-container {
+    gap: 1.5em;
   }
   .card .container__text-container .card-title {
     font-size: clamp(4vw, 6.5vw, 1.5em);
