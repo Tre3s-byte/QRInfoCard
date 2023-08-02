@@ -33,23 +33,10 @@ body {
   border-radius: 2em;
   gap: 2em;
 }
-@media screen and (max-width: 376px) {
-  .card {
-    width: 90vw;
-    gap: 1em;
-    height: 35em;
-  }
-}
 .card .card__qr {
   margin-top: 1.2em;
   width: 24em;
   border-radius: 0.8em;
-}
-@media screen and (max-width: 376px) {
-  .card .card__qr {
-    width: 82vw;
-    margin: 1em 0;
-  }
 }
 .card .container__text-container {
   display: flex;
@@ -61,36 +48,42 @@ body {
   gap: 1em;
   margin-bottom: 2em;
 }
-@media screen and (max-width: 376px) {
-  .card .container__text-container {
-    width: 78vw;
-    margin-bottom: 1em;
-  }
-}
 .card .container__text-container .card-title {
   text-align: center;
-  font-weight: 700;
+  font-weight: weight(bold);
   font-size: 1.9em;
   color: hsl(218, 44%, 22%);
-}
-@media screen and (max-width: 376px) {
-  .card .container__text-container .card-title {
-    font-size: 1.5em;
-    width: 19.03rem;
-  }
 }
 .card .container__text-container .informative-text {
   width: 17.5em;
   text-align: center;
-  font-weight: 400;
+  font-weight: weight(regular);
   font-size: 1.35em;
   line-height: 1.2em;
   color: hsl(220, 15%, 55%);
 }
-@media screen and (max-width: 376px) {
+@media only screen and (max-width: 480px) {
+  .card {
+    right: 1em;
+    position: relative;
+    margin: 0 auto;
+    justify-self: center;
+    align-self: center;
+    width: clamp(20em, 90vw, 50em);
+    gap: 1em;
+    height: clamp(33em, 143vw, 46em);
+  }
+  .card .card__qr {
+    width: clamp(18em, 85vw, 38em);
+    margin: 1em 0 0.3em 0;
+  }
+  .card .container__text-container .card-title {
+    font-size: clamp(5vw, 7.5vw, 2em);
+    width: clamp(13em, 65vw, 30em);
+  }
   .card .container__text-container .informative-text {
-    font-size: 1.2em;
-    width: 21rem;
+    font-size: clamp(4vw, 5.5vw, 1.5em);
+    width: clamp(17em, 75vw, 38em);
   }
 }
 

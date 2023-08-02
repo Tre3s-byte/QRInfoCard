@@ -9,11 +9,7 @@ body {
 
 .card {
   @include flex-center(column);
-  @include respond-to(xs) {
-    width: 90vw;
-    gap: 1em;
-    height: 35em;
-  }
+
   width: 26.5em;
   height: 40em;
   justify-content: flex-start;
@@ -24,29 +20,18 @@ body {
   .card__qr {
     margin-top: 1.2em;
     width: 24em;
-    @include respond-to(xs) {
-      width: 82vw;
-      margin: 1em 0;
-    }
+
     border-radius: 0.8em;
   }
 
   .container__text-container {
     @include flex-center(column);
-    @include respond-to(xs) {
-      width: 78vw;
-      margin-bottom: 1em;
-    }
+
     width: 24em;
     gap: 1em;
     margin-bottom: 2em;
 
     .card-title {
-      @include respond-to(xs) {
-        font-size: 1.5em;
-        width: 19.03rem;
-      }
-
       text-align: center;
       font-weight: weight(bold);
       font-size: 1.9em;
@@ -54,10 +39,6 @@ body {
     }
 
     .informative-text {
-      @include respond-to(xs) {
-        font-size: 1.2em;
-        width: 21rem;
-      }
       width: 17.5em;
       text-align: center;
       font-weight: weight(regular);
@@ -66,6 +47,52 @@ body {
       color: $grayish-blue;
     }
   }
+
+  @include media("sm") {
+    right: 1em;
+
+    position: relative;
+    margin: 0 auto;
+    justify-self: center;
+    align-self: center;
+    width: clamp(20em, 90vw, 50em);
+    gap: 1em;
+    height: clamp(33em, 143vw, 46em);
+    .card__qr {
+      width: clamp(18em, 85vw, 38em);
+      margin: 1em 0 0.3em 0;
+    }
+    .container__text-container {
+      .card-title {
+        font-size: clamp(5vw, 7.5vw, 2em);
+        width: clamp(13em, 65vw, 30em);
+      }
+      .informative-text {
+        font-size: clamp(4vw, 5.5vw, 1.5em);
+
+        width: clamp(17em, 75vw, 38em);
+      }
+    }
+  }
+  // @include media("xs") {
+  //   width: 80vw;
+  //   gap: 1em;
+  //   height: 35em;
+  //   .card__qr {
+  //     width: 75vw;
+  //     margin: 1em 0;
+  //   }
+  //   .container__text-container {
+  //     .card-title {
+  //       font-size: 1.8em;
+  //       width: 19.03rem;
+  //     }
+  //     .informative-text {
+  //       font-size: 1.2em;
+  //       width: 21rem;
+  //     }
+  //   }
+  // }
 }
 
 /* Override specific styles for screens up to 456px */

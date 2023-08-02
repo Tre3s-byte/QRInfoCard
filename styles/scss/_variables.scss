@@ -18,29 +18,22 @@ $font-weight: (
   "regular": 400,
   "bold": 700,
 );
-$breakPoints: (
-  xs: (
-    min: 375,
-    max: 374.98,
-  ),
-  sm: (
-    min: 462px,
-    max: 461.98,
-  ),
+$breakpoints: (
+  "xs": 390px,
+  "sm": 480px,
 );
-@mixin respond-to($breakpoint) {
-  @if map-has-key($breakPoints, $breakpoint) {
-    $query: map-get(map-get($breakPoints, $breakpoint), min) + 1;
-    @media screen and (max-width: #{$query}px) {
+@mixin media($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == min {
+      $width: $width + 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
       @content;
     }
-  } @else {
-    @error "The provided breakpoint '#{$breakpoint}' does not exist in $breakPoints.";
   }
 }
-@function weight($weight-name) {
-  @return map-get($font-weight, $weight-name);
-}
+
 @mixin flex-center($direction) {
   display: flex;
   justify-content: center;
