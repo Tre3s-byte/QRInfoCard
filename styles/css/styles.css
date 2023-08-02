@@ -30,7 +30,7 @@ body {
   height: 40em;
   justify-content: flex-start;
   background: hsl(0, 0%, 100%);
-  border-radius: 2em;
+  border-radius: 1.8em;
   gap: 2em;
 }
 .card .card__qr {
@@ -73,17 +73,17 @@ body {
     height: clamp(33em, 143vw, 46em);
   }
   .card .card__qr {
-    width: clamp(18em, 85vw, 38em);
-    margin: 1em 0 0.3em 0;
+    width: clamp(14em, 81vw, 34em);
+    margin: 1.15em 0 0.3em 0;
   }
   .card .container__text-container .card-title {
-    font-size: clamp(5vw, 7.5vw, 2em);
-    width: clamp(13em, 65vw, 30em);
+    font-size: clamp(4vw, 6.5vw, 1.5em);
+    width: clamp(12em, 60vw, 25em);
   }
   .card .container__text-container .informative-text {
-    font-size: clamp(4vw, 5.5vw, 1.5em);
+    font-size: clamp(1vw, 4.5vw, 1.3em);
     width: clamp(17em, 75vw, 38em);
   }
 }
 
-/* Override specific styles for screens up to 456px */ /*# sourceMappingURL=styles.css.map */
+/* Override specific styles for screens up to 456px *//*# sourceMappingURL=styles.css.map */
