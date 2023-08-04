@@ -4,7 +4,7 @@ const aside = document.querySelector(".themes-container");
 
 const contentData = {
   content: `
-<img src="./images/image-qr-code.png" alt="Generate QR code" class="card__qr" />
+<img src="./images/image-qr-code.png" alt="Generate QR code" class="card__qr" width="360" height="360"/>
 <div class="container__text-container">
   <h1 class="card-title">Improve your front-end skills by building projects</h1>
   <p class="informative-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
