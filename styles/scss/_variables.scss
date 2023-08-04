@@ -16,29 +16,34 @@ $link-color: hsl(228, 45%, 44%);
   $title-color: hsl(0, 0%, 100%);
   $link-color: hsl(228, 45%, 44%);
 }
-$font-weight: (
-  "regular": 400,
-  "bold": 700,
-);
+
 $breakpoints: (
   "xs": 390px,
   "sm": 480px,
 );
 
+$font-weights: (
+  "regular": 400,
+  "bold": 700,
+);
+
 @font-face {
   font-family: "Outfit";
-  font-display: swap; /* This property controls the font loading behavior */
-  font-weight: 400;
+  font-display: swap;
+  font-weight: weight("regular"); // Using the weight function to get the weight value
   src: local("Outfit Regular"), local("Outfit-Regular"),
     url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
 }
 
 @font-face {
   font-family: "Outfit";
-  font-display: swap; /* This property controls the font loading behavior */
-  font-weight: 700;
+  font-display: swap;
+  font-weight: weight("bold"); // Using the weight function to get the weight value
   src: local("Outfit Bold"), local("Outfit-Bold"),
     url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+}
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
 }
 @mixin media($width, $type: max) {
   @if map_has_key($breakpoints, $width) {

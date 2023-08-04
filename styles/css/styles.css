@@ -7,14 +7,14 @@
 
 @font-face {
   font-family: "Outfit";
-  font-display: swap; /* This property controls the font loading behavior */
-  font-weight: 400;
+  font-display: swap;
+  font-weight: weight("regular");
   src: local("Outfit Regular"), local("Outfit-Regular"), url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
 }
 @font-face {
   font-family: "Outfit";
-  font-display: swap; /* This property controls the font loading behavior */
-  font-weight: 700;
+  font-display: swap;
+  font-weight: weight("bold");
   src: local("Outfit Bold"), local("Outfit-Bold"), url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
 }
 .attribution {
@@ -62,14 +62,14 @@ body {
 }
 .card .container__text-container .card-title {
   text-align: center;
-  font-weight: weight(bold);
+  font-weight: 700;
   font-size: 1.9em;
   color: hsl(218, 44%, 22%);
 }
 .card .container__text-container .informative-text {
   width: 17.5em;
   text-align: center;
-  font-weight: weight(regular);
+  font-weight: 400;
   font-size: 1.35em;
   line-height: 1.2em;
   color: hsl(220, 15%, 55%);
