@@ -2,18 +2,20 @@ $mobile: 375px;
 $tablet: 768px;
 $large: 1024px;
 $desktop: 1280px;
-$white: hsl(0, 0%, 100%);
-$light-gray: hsl(212, 45%, 89%);
-$grayish-blue: hsl(220, 15%, 55%);
-$dark-blue: hsl(218, 44%, 22%);
-$cobalt-blue: hsl(228, 45%, 44%);
 
-$defaul-title-color: $white, $dark-blue;
-$default-text-color: $white, $grayish-blue;
+$card-color: hsl(0, 0%, 100%);
+$bodybg: hsl(212, 45%, 89%);
+$text-color: hsl(220, 15%, 55%);
+$title-color: hsl(218, 44%, 22%);
+$link-color: hsl(228, 45%, 44%);
 
-$dark-title-color: $dark-blue, $white;
-$dark-text-color: $dark-blue, $light-gray;
-
+.dark-theme {
+  $card-color: hsl(218, 44%, 22%);
+  $bodybg: black;
+  $text-color: hsl(219, 29%, 76%);
+  $title-color: hsl(0, 0%, 100%);
+  $link-color: hsl(228, 45%, 44%);
+}
 $font-weight: (
   "regular": 400,
   "bold": 700,
@@ -22,13 +24,29 @@ $breakpoints: (
   "xs": 390px,
   "sm": 480px,
 );
+
+@font-face {
+  font-family: "Outfit";
+  font-display: swap; /* This property controls the font loading behavior */
+  font-weight: 400;
+  src: local("Outfit Regular"), local("Outfit-Regular"),
+    url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-display: swap; /* This property controls the font loading behavior */
+  font-weight: 700;
+  src: local("Outfit Bold"), local("Outfit-Bold"),
+    url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+}
 @mixin media($width, $type: max) {
   @if map_has_key($breakpoints, $width) {
     $width: map_get($breakpoints, $width);
     @if $type == min {
       $width: $width + 1px;
     }
-    @media only screen and (#{$type}-width: $width) {
+    @media (#{$type}-width: $width) {
       @content;
     }
   }
