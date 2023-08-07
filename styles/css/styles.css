@@ -101,24 +101,49 @@ body {
   }
 }
 
-.themes-container {
+.themes {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
   position: absolute;
-  width: 5em;
-  height: 2.5em;
-  top: 0.5em;
-  right: 0.5em;
+  top: 1em;
+  right: 1em;
+  gap: 1em;
 }
-
-.theme-buttons .button {
-  width: 1.8em;
-  height: 1.8em;
+.themes .radio {
+  display: none;
+}
+.themes .radio:checked + .label, .themes .radio:checked + .light-label, .themes .radio:checked + .dark-label {
+  transform: scale(1.2);
+}
+.themes .label, .themes .light-label, .themes .dark-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 1.2em;
+  height: 1.2em;
   border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  font-size: 1.5em;
+  font-size: bolder;
+}
+.themes .label img, .themes .light-label img, .themes .dark-label img {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+.themes .label:hover, .themes .light-label:hover, .themes .dark-label:hover {
+  transform: scale(1.2);
+}
+.themes .light-label {
+  background: hsl(0, 0%, 100%);
+  color: #fb7413;
 }
 
 .attribution {
