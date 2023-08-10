@@ -28,6 +28,10 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ## My process
 
+My goal was simple: to bring the requested stylization. However I recognized an exciting opportunity to elevate the experience and to expand beyond the initial scope and incorporate a dynamic theme-switching feature, enhancing the project's overall functionality and appeal.
+
+By utilizing the foundational styling elements as a springboard, I seamlessly integrated the theme-switching mechanism. Employing the versatile power of SCSS and JS
+
 ### Built with
 
 - Semantic HTML5 markup
