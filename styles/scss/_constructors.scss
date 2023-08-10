@@ -1,0 +1,51 @@
+// Mixins
+@mixin media($width, $type: max) {
+  @if map-has-key($breakpoints, $width) {
+    $width: map-get($breakpoints, $width);
+    @if $type == min {
+      $width: $width + 1px;
+    }
+    @media (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: nowrap;
+}
+
+// Fonts
+@font-face {
+  font-family: "Outfit";
+  font-display: swap;
+  src: local("Outfit Regular"), local("Outfit-Regular"),
+    url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+  font-weight: weight("regular");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-display: swap;
+  src: local("Outfit Bold"), local("Outfit-Bold"),
+    url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+  font-weight: weight("bold");
+}
+
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+@mixin custom-icon($image-url, $color) {
+  content: "";
+  background: url("#{$image-url}");
+  background-repeat: no-repeat;
+  width: 2em;
+  height: 1.9em;
+  background-size: cover;
+  border-radius: 50%;
+  border: 0.1em solid var(--#{$color});
+}

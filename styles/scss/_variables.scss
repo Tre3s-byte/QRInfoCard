@@ -1,72 +1,32 @@
-$mobile: 375px;
-$tablet: 768px;
-$large: 1024px;
-$desktop: 1280px;
-$orange: #fb7413;
-
-$card-color: hsl(0, 0%, 100%);
-$bodybg: hsl(212, 45%, 89%);
-$text-color: hsl(220, 15%, 55%);
-$title-color: hsl(218, 44%, 22%);
-$link-color: hsl(228, 45%, 44%);
-
-.dark-theme {
-  $card-color: hsl(218, 44%, 22%);
-  $bodybg: black;
-  $text-color: hsl(219, 29%, 76%);
-  $title-color: hsl(0, 0%, 100%);
-  $link-color: hsl(228, 45%, 44%);
+// Variables
+:root {
+  --card-color: hsl(0, 0%, 100%);
+  --bodybg: hsl(212, 45%, 89%);
+  --text-color: hsl(220, 15%, 55%);
+  --title-color: hsl(218, 44%, 22%);
+  --link-color: hsl(228, 45%, 44%);
+  --attribution-color: hsl(218, 44%, 22%);
+  --theme-border: hsl(192, 45%, 44%);
 }
 
+.dark {
+  --card-color: hsl(212, 45%, 89%);
+  --bodybg: #232323;
+  --text-color: hsl(218, 44%, 22%);
+  --title-color: #232323;
+  --link-color: hsl(192, 45%, 44%);
+  --attribution-color: white;
+  --theme-border: hsl(34, 78%, 74%);
+}
+
+// Variables - Breakpoints
 $breakpoints: (
   "xs": 390px,
   "sm": 480px,
 );
 
+// Variables - Font Weights
 $font-weights: (
   "regular": 400,
   "bold": 700,
 );
-
-@font-face {
-  font-family: "Outfit";
-  font-display: swap;
-  font-weight: weight("regular"); // Using the weight function to get the weight value
-  src: local("Outfit Regular"), local("Outfit-Regular"),
-    url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Outfit";
-  font-display: swap;
-  font-weight: weight("bold"); // Using the weight function to get the weight value
-  src: local("Outfit Bold"), local("Outfit-Bold"),
-    url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
-}
-@function weight($weight-name) {
-  @return map-get($font-weights, $weight-name);
-}
-@mixin media($width, $type: max) {
-  @if map_has_key($breakpoints, $width) {
-    $width: map_get($breakpoints, $width);
-    @if $type == min {
-      $width: $width + 1px;
-    }
-    @media (#{$type}-width: $width) {
-      @content;
-    }
-  }
-}
-
-@mixin flex-center($direction) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: $direction;
-  flex-wrap: nowrap;
-}
-
-.attribution {
-  font-size: 0.8em;
-  text-align: center;
-}

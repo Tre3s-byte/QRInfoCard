@@ -1,35 +1,50 @@
 * {
-  font-size: 15px;
-  font-family: "Outfit", sans-serif;
   margin: 0;
   padding: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+}
+
+:root {
+  --card-color: hsl(0, 0%, 100%);
+  --bodybg: hsl(212, 45%, 89%);
+  --text-color: hsl(220, 15%, 55%);
+  --title-color: hsl(218, 44%, 22%);
+  --link-color: hsl(228, 45%, 44%);
+  --attribution-color: hsl(218, 44%, 22%);
+  --theme-border: hsl(192, 45%, 44%);
+}
+
+.dark {
+  --card-color: hsl(212, 45%, 89%);
+  --bodybg: #232323;
+  --text-color: hsl(218, 44%, 22%);
+  --title-color: #232323;
+  --link-color: hsl(192, 45%, 44%);
+  --attribution-color: white;
+  --theme-border: hsl(34, 78%, 74%);
 }
 
 @font-face {
   font-family: "Outfit";
   font-display: swap;
-  font-weight: weight("regular");
   src: local("Outfit Regular"), local("Outfit-Regular"), url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+  font-weight: weight("regular");
 }
 @font-face {
   font-family: "Outfit";
   font-display: swap;
-  font-weight: weight("bold");
   src: local("Outfit Bold"), local("Outfit-Bold"), url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2) format("woff2");
+  font-weight: weight("bold");
 }
-.attribution {
-  font-size: 0.8em;
-  text-align: center;
-}
-
-body {
+body, .dark {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
   height: 100vh;
-  background: hsl(212, 45%, 89%);
+  background: var(--bodybg);
 }
 
 .card {
@@ -38,10 +53,10 @@ body {
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
+  justify-content: flex-start;
   width: 26.5em;
   height: 40em;
-  justify-content: flex-start;
-  background: hsl(0, 0%, 100%);
+  background: var(--card-color);
   border-radius: 1.8em;
   gap: 2em;
 }
@@ -64,7 +79,7 @@ body {
   text-align: center;
   font-weight: 700;
   font-size: 1.9em;
-  color: hsl(218, 44%, 22%);
+  color: var(--title-color);
 }
 .card .container__text-container .informative-text {
   width: 17.5em;
@@ -72,7 +87,7 @@ body {
   font-weight: 400;
   font-size: 1.35em;
   line-height: 1.2em;
-  color: hsl(220, 15%, 55%);
+  color: var(--text-color);
 }
 @media (max-width: 480px) {
   .card {
@@ -100,6 +115,14 @@ body {
     width: clamp(17em, 75vw, 38em);
   }
 }
+.card .attribution {
+  color: var(--attribution-color);
+  font-size: 0.8em;
+  text-align: center;
+}
+.card .attribution a {
+  color: var(--link-color);
+}
 
 .themes {
   display: flex;
@@ -112,45 +135,48 @@ body {
   right: 1em;
   gap: 1em;
 }
-.themes .radio {
+.themes .label::before {
+  content: "";
+  background: url("../../images/light-mode.png");
+  background-repeat: no-repeat;
+  width: 2em;
+  height: 1.9em;
+  background-size: cover;
+  border-radius: 50%;
+  border: 0.1em solid var(--theme-border);
+}
+.themes .theme-switcher {
   display: none;
 }
-.themes .radio:checked + .label, .themes .radio:checked + .light-label, .themes .radio:checked + .dark-label {
-  transform: scale(1.2);
+.themes .theme-switcher:checked + .label::before {
+  content: "";
+  background: url("../../images/dark-mode.png");
+  background-repeat: no-repeat;
+  width: 2em;
+  height: 1.9em;
+  background-size: cover;
+  border-radius: 50%;
+  border: 0.1em solid var(--theme-border);
 }
-.themes .label, .themes .light-label, .themes .dark-label {
+.themes .label {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 1.2em;
-  height: 1.2em;
+  justify-content: flex-start;
+  width: 2em;
   border-radius: 50%;
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease-out;
   font-size: 1.5em;
-  font-size: bolder;
+  font-weight: bolder;
 }
-.themes .label img, .themes .light-label img, .themes .dark-label img {
+.themes .label img {
   width: 2em;
   height: 2em;
   border-radius: 50%;
-}
-.themes .label:hover, .themes .light-label:hover, .themes .dark-label:hover {
-  transform: scale(1.2);
-}
-.themes .light-label {
-  background: hsl(0, 0%, 100%);
-  color: #fb7413;
-}
-
-.attribution {
-  color: hsl(218, 44%, 22%);
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
 }
 
 /* Override specific styles for screens up to 456px *//*# sourceMappingURL=styles.css.map */

@@ -2,7 +2,6 @@ class CardInjector {
   constructor(containerSelector, asideSelector) {
     this.container = document.querySelector(containerSelector);
     this.aside = document.querySelector(asideSelector);
-    this.themeButtons = document.querySelectorAll('input[name="theme-radio"]');
   }
 
   insertHTML(element, html) {
@@ -14,14 +13,6 @@ class CardInjector {
     this.insertHTML(this.container, data.content);
     this.insertHTML(this.container, data.attribution);
   }
-
-  themeSwitcher() {
-    this.themeButtons.forEach((button) => {
-      button.addEventListener("change", () => {
-        document.body.classList.toggle("dark-theme"); // Removed the dot before "dark-theme"
-      });
-    });
-  }
 }
 const contentData = {
   content: `
@@ -29,18 +20,15 @@ const contentData = {
     <div class="container__text-container">
       <h1 class="card-title">Improve your front-end skills by building projects</h1>
       <p class="informative-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
-      
+
     </div>
   `,
   themeButtons: ` 
     <div class="theme__container">
-      <input type="radio" id="dark" class="dark-radio radio" name="theme-radio" />
-      <label for="dark" class="dark-label label"><img src="./images/dark-mode.png" alt="" /></label>
+      <input type="checkbox" id="theme-switcher" class="theme-switcher" name="mode"/>
+      <label for="theme-switcher" class="theme-label label"></label>
     </div>
-    <div class="theme__container">
-      <input type="radio" id="light" class="light-radio radio" name="theme-radio" checked />
-      <label for="light" class="light-label label"><img src="./images/light-mode.png" alt="" /></label>
-    </div>
+    
   `,
   attribution: `
     <div class="attribution aside">
@@ -51,4 +39,13 @@ const contentData = {
 };
 const cardInjector = new CardInjector(".card", ".themes");
 cardInjector.injectContent(contentData);
-cardInjector.themeSwitcher();
+
+let checkbox = document.querySelector("input[name=mode]");
+
+checkbox.addEventListener("change", (e) => {
+  if (e.target.checked) {
+    document.body.setAttribute("class", "dark");
+  } else {
+    document.body.removeAttribute("class");
+  }
+});

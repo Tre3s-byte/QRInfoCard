@@ -1,39 +1,29 @@
+// Styles
 @import "./resets";
 @import "./variables";
+@import "./constructors";
 
-:root {
-  $card-color: hsl(0, 0%, 100%);
-  $bodybg: hsl(212, 45%, 89%);
-  $text-color: hsl(220, 15%, 55%);
-  $title-color: hsl(218, 44%, 22%);
-  $link-color: hsl(228, 45%, 44%);
-}
 body {
   @include flex-center(column);
   height: 100vh;
-  background: $bodybg;
+  background: var(--bodybg);
 }
-
 .card {
   @include flex-center(column);
-
+  justify-content: flex-start;
   width: 26.5em;
   height: 40em;
-  justify-content: flex-start;
-  background: $card-color;
+  background: var(--card-color);
   border-radius: 1.8em;
   gap: 2em;
 
   .card__qr {
     margin-top: 1.2em;
     width: 24em;
-
     border-radius: 0.8em;
   }
-
   .container__text-container {
     @include flex-center(column);
-
     width: 24em;
     gap: 1em;
     margin-bottom: 2em;
@@ -42,16 +32,15 @@ body {
       text-align: center;
       font-weight: weight(bold);
       font-size: 1.9em;
-      color: $title-color;
+      color: var(--title-color);
     }
-
     .informative-text {
       width: 17.5em;
       text-align: center;
       font-weight: weight(regular);
       font-size: 1.35em;
       line-height: 1.2em;
-      color: $text-color;
+      color: var(--text-color);
     }
   }
 
@@ -75,9 +64,16 @@ body {
       }
       .informative-text {
         font-size: clamp(1vw, 4.5vw, 1.3em);
-
         width: clamp(17em, 75vw, 38em);
       }
+    }
+  }
+  .attribution {
+    color: var(--attribution-color);
+    font-size: 0.8em;
+    text-align: center;
+    a {
+      color: var(--link-color);
     }
   }
 }
@@ -88,51 +84,38 @@ body {
   right: 1em;
   gap: 1em;
 
-  .radio {
+  .label::before {
+    @include custom-icon("../../images/light-mode.png", theme-border);
+  }
+
+  .theme-switcher {
     display: none;
-    &:checked + .label {
-      transform: scale(1.2);
-    }
-    &:checked + .dark-label {
-    }
-    &:checked + .light-label {
+
+    &:checked + .label::before {
+      @include custom-icon("../../images/dark-mode.png", theme-border);
     }
   }
 
   .label {
     @include flex-center(row);
-    width: 1.2em;
-    height: 1.2em;
+    justify-content: flex-start;
+    width: 2em;
     border-radius: 50%;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease-out;
     font-size: 1.5em;
-    font-size: bolder;
+    font-weight: bolder;
 
     img {
       width: 2em;
       height: 2em;
       border-radius: 50%;
     }
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-  .dark-label {
-    @extend .label;
-  }
-  .light-label {
-    @extend .label;
-    background: $card-color;
-    color: $orange;
   }
 }
-.attribution {
-  color: $title-color;
-  a {
-    color: $link-color;
-  }
+.dark {
+  @extend body;
 }
 
 /* Override specific styles for screens up to 456px */
